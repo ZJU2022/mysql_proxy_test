@@ -1,0 +1,102 @@
+6.10.9
+- Fix to correct wrong TimeZone returned when using MySqlDataReader['columnName'] to get DateTime type values (Oracle Bug #28156187).
+- Contribution added: Add CreateCommandBuilder and CreateDataAdapter to MySqlClientFactory (MySQL Bug #92206, Oracle Bug #28560189). Thanks to Cédric Luthi for the contribution.
+- Fix null DbDataAdapter and DbCommandBuilder objects when using CreateDataAdapter and CreateCommandBuilder respectively (MySQL Bug #88660, Oracle Bug #27292344).
+- Bug fix: PREPARED COMMANDS EXECUTE WITH ERROR ON MYSQL SERVER 8.0.13 (MySQL Bug #92912, Oracle Bug #28834253).
+- Fixed an issue that convert 00:00:00 (Time) to null when using prepared commands (MySQL Bug #91752, Oracle Bug #28383726).
+- Added new "allowloadlocalinfile" connection string option that disables or enables the server functionality to load the data local infile.
+- Fixed wrong order of records for columns when using MySqlConnection.GetSchema (MySql Bug #94773, Oracle Bug #29536344).
+- Added support for .NET Core 2.2 (WL12337).
+- Contribution added: Fix to add missing invariant culture on parse methods (MySQL Bug #94045, Orale Bug #29262195). Thanks to Effy Teva for the contribution.
+- Added a fix to avoid running "SHOW VARIABLES" query (MySQL Bug #93202, Oracle Bug #28928543).
+- Fixed a bug that throws an exception 24.9 days after a server was restarted (MySQL Bug #75604, Oracle Bug #26930306).
+- Added support for IPv6.
+- Fixed an error involving a rename-table operation in Entity Framework Core migrations (MySQL Bug #90958, Oracle Bug #28107555).
+
+
+6.10.8
+- Improved the performance when opening connections by refactoring the MySqlConnectAttrs class. Improved the performance
+  in Windows environments by optimizing the query that identifies the operating system details
+  (MySQL Bug #80030, Oracle Bug#22580399).
+- Fixed a bug that prevented the TreatTinyAsBoolean connection option from being set when calling the
+  MySqlCommand.Prepare method (MySQL Bug #88472, Oracle Bug #27113566).
+- Fix to correct wrong result type returned by MySqlDataReader after null found (MySQL Bug #78917, Oracle Bug #22101727).
+- Contribution added: Fixing encoding (MySQL Bug #90316, Oracle Bug #27818822). Thanks to Kleber Syd Moraes da Silva for the contribution.
+- Contribution added: Fixing CONCURRENCYCHECK and DATABASEGENERATEDOPTION.COMPUTED (MySQL Bug #91064, Oracle Bug #28095165). Thanks to Tony OHagan for the contribution.
+- Fixed an SQL syntax error thrown when a point type is evaluated. Changed SRID() function to ST_SRID() since SRID() is deprecated. (MySQL Bug #27715007).
+- Removed unused _fieldHashCs field from ResulSet (MySQL Bug #88950, Oracle Bug #27285641).
+- Fix to correct exception, "Incorrect usage of spatial/fulltext/hash index and explicit index order", when using the Entity Framework code-first approach with MySQL 8.0 servers (Oracle Bug #27715069).
+- Fixed in EF Core that when an entity property is numeric and not a key, to avoid adding the autoincrement annotation (MySQL Bug #91551, Oracle Bug #28293927).
+- Contribution added: Fix to correct ArgumentOutOfRangeException raised when trying to create an instance of MySqlGeometry for an empty geometry collection (MySQL Bug #86974, Oracle Bug #26421346). Thanks to Peet Whittaker for the contribution.
+- Fixed EF Core 2.0 not supported in .NET Framework projects (MySQL Bug #90306, Oracle Bug #27815706).
+- Fixed EF Core 2.0 scaffolding (MySQL Bug #90368, Oracle Bug #27898343).
+
+
+6.10.7
+- Updated the RSA key encryption padding to RSA_PKCS1_OAEP_PADDING for the caching_sha2_password authentication plugin when connecting to server 8.0.5 (or later) (WL11618).
+- Added support for the caching_sha2_password authentication plugin introduced in server 8.0.3.
+  Added support for RSA key encription in the sha256_password authentication plugin (WL11285).
+- Added support for MySQL 8 server features (WL11326).
+- Fix to avoid raising an exception during the DbContext setup. Thanks to Cédric Luthi for his contribution. (MySQL Bug #89134, Oracle Bug #25185319)
+- Fixed a problem in which NuGet packages could not be installed from within Visual Studio 2015 (MySQL Bug #88838, Oracle Bug #27251839).
+- Fix for bug: could not load file or assembly MySql.ConnectorInstaller when using web providers (MySQL Bug #88544, Oracle Bug #27457398).
+- Fix to enable the creation of an Entity Framework model from a database, also called the database-first approach (MySQL Bug 79163, Oracle Bug #22173048).
+- Fix to prevent the Entity Data Model Wizard from crashing in Visual Studio upon clicking the Next
+button. Thanks to Laurents Meyer for the contribution (MySQL Bug #89338, Oracle Bug #27420311).
+
+
+6.10.6
+- Fix for sockets stay in CLOSE_WAIT when using SSL (MySQL Bug #75022, Oracle Bug #20393654).
+- Fix for unexpected ColumnSize for CHAR(63) and BLOB columns in GetSchemaTable (MySQL Bug #87868, Oracle Bug #26876582)
+- Fix to correct unexpected ColummSize and IsLong values returned by MySqlDataReader.GetSchemaTable when using LongText and LongBlob data types. (MySQL Bug #87876, Oracle Bug #26876592)
+- Fix to correct the wrong NumericPrecision value returned by MySqlDataReader.GetSchemaTable when NumericScale is 0 for Decimal data types. (MySQL Bug #88058, Oracle Bug #26954812)
+
+
+6.10.5
+- Added support for .Net Core 2.0 (WL-11394).
+- Added support for EF Core 2.0 (WL-11395).
+
+
+6.10.4
+- Removed documentation files. The Api Reference is now online (WL-10863).
+- EF Core: Fixed bug when using zero datetime values (MySQL Bug #87120, Oracle Bug #26552753).
+- EF Core: Fixed bug missing foreign keys when scaffolding a database (Oracle Bug #26339430).
+- Removed UseProcedureBodies connection string option (WL-10639).
+- EF Core: Added MySqlCharset and MySqlCollation attributes to set charset/collation in entities or entity properties (WL-10894).
+- EF Core: Added ForMySQLHasCharset and ForMySQLHasCollation methods to set charset/collation in entities or entity properties (WL-10894).
+- Fixed Fix for "Aborted connection" (MySQL Bug #80997, Oracle Bug # 23346197).
+- Added user contribution in bug MySql.Web.Security.CreateUserInUserTable does not work (MySQL Bug #83656, Oracle Bug # 25046364).
+- Fixed incorrect encoding in connection passwords (MySQL Bug #80611, Oracle Bug #23257011).
+
+
+6.10.3
+- Added support for Unix sockets in dotnet core. WL-10613
+- EF Core: Added async support. WL-10615
+- Removed connection string options 'autoenlist' and 'includesecurityasserts' for Dotnet core. WL-10564
+- EF Core: Added support for Explicit loading. WL-9768
+- EF Core: Added support for multiple schemas. WL-10668
+- The following connection string options will raise a PlatformNotSupportedException when used in Dotnet Core: sharedmemoryname, integratedsecurity, pipe, logging, useusageadvisor, useperformancemonitor, interactivesession, replication. They will be implemented in future versions.
+
+
+6.10.2
+- Fixed: EF core database first support fails for a database with views. Orabug #25493086
+- Fixed: EF Core database first doesn't support mysql sample world/sakila database. Orabug #25493336
+- Fixed: EF Core supports Json types. Oracle Bug #25493143
+- Fixed: EF Core database first doesn't supprt multiple datatypes (bin, mediumblob, date, etc). Oracle Bug #25493209
+- Fixed: EF Core TableAttribute is ignored when creating the database. Oracle Bug #25394223
+- Fixed: EF Core fails saving entity changes with computed columns. Oracle Bug #25816601
+- Added in EF Core database support to filter by table when scaffolding. WL-10669
+- EF Core: Implemented EnsureSchemaOperation used if the OnModelCreating event has an Entity<>.Table(<name>, <schema>) definition. WL-10695
+- Updated strings max lenght. WL-10705
+
+
+6.10.1
+- Support for Database first in Entity Framework Core 1.1
+- Fixed: Exception caused by skip & take in mysql ef core Orabug #	25382036  MySQL bug #84453
+- Fixed: Using contains method in expression with a variable throws exception in ef core Orabug #25394204 MySQL bug #84505
+- Fixed: Using contains doesn't work when string is initialized separately & passed as param. Orabug #25541779
+
+
+6.10.0
+- Compression support in .net core driver.
+- Support for Entity Framework Core 1.1.
