@@ -1,0 +1,5 @@
+module mysqlv1_7
+
+go 1.21.7
+
+require github.com/go-sql-driver/mysql v1.7.1 // indirect

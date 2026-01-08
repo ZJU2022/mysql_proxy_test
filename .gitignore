@@ -1,0 +1,40 @@
+# 压缩包和二进制分发包
+*.tar.gz
+*.zip
+*.rpm
+
+# 编译产物
+*.class
+*.exe
+*.dll
+*.so
+*.dylib
+*.o
+*.a
+
+# Node.js
+node_modules/
+**/node_modules/
+package/
+package-lock.json
+
+# Python 虚拟环境
+venv/
+**/venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# 大文件和临时文件
+*.log
+*.tmp
+
